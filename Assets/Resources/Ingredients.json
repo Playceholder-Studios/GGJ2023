@@ -1,0 +1,19 @@
+{
+    "Items":
+    [
+        {
+            "id": 1,
+            "ingredientName": "Jinjur",
+            "tags": [
+                "spicy"
+            ]
+        },
+        {
+            "id": 2,
+            "ingredientName": "Sugaroot",
+            "tags": [
+                "sweet"
+            ]
+        }
+    ]
+}

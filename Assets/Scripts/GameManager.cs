@@ -1,18 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance { get; private set; }
+
+    public Dictionary<int, Ingredient> Ingredients;
+    public Dictionary<int, Recipe> Recipes;
+
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        loadData();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void loadData()
     {
-        
+        // Load ingredients
+        Ingredients = Util.ImportJson<Ingredient>("Ingredients")
+            .ToDictionary(
+                i => i.id,
+                i => i);
+        // Load recipes
+        Recipes = Util.ImportJson<Recipe>("Recipes")
+           .ToDictionary(
+                r => r.id,
+                r => r);
+        // Load levels TODO
     }
 }

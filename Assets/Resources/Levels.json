@@ -1,0 +1,72 @@
+{
+    "Items":
+    [
+        {
+            "id": 1,
+            "characterID": 1,
+            "dialogue": {
+                "ordering":
+                {
+                    "content": 
+                        [
+                            {
+                                "isPlayer": false,
+                                "content": "Hey."
+                            },
+                            {
+                                "isPlayer": true,
+                                "content": "Hiya, how can I help you?"
+                            },
+                            {
+                                "isPlayer": false,
+                                "content": "Been a cold, dull, and bitter day today."
+                            }
+                        ],
+                    "keywords": [
+                        {
+                            "word": "cold",
+                            "context": "negative"
+                        },
+                        {
+                            "word": "bitter",
+                            "context": "negative"
+                        },
+                        {
+                            "word": "dull",
+                            "context": "negative"
+                        }
+                    ]
+                },
+                "success":
+                {
+                    "content": 
+                        [
+                            {
+                                "isPlayer": false,
+                                "content": "The world may be harsh, but this drink was nice."
+                            },
+                            {
+                                "isPlayer": false,
+                                "content": "Thank you."
+                            }
+                        ]
+                },
+                "failure":
+                {
+                    "content": 
+                        [
+                            {
+                                "isPlayer": false,
+                                "content": "Things are the same in here as out there, eh."
+                            },
+                            {
+                                "isPlayer": false,
+                                "content": "Whatever."
+                            }
+                        ]
+                }
+            },
+            "drinkId": 1
+        }
+    ]
+}

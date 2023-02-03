@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<int, Ingredient> Ingredients;
     public Dictionary<int, Recipe> Recipes;
+    public Dictionary<int, Level> Levels;
 
     private void Awake()
     {
@@ -35,6 +36,10 @@ public class GameManager : MonoBehaviour
            .ToDictionary(
                 r => r.id,
                 r => r);
-        // Load levels TODO
+        // Load levels
+        Levels = Util.ImportJson<Level>("Levels")
+           .ToDictionary(
+                l => l.id,
+                l => l);
     }
 }

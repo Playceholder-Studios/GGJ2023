@@ -3,23 +3,43 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; private set; }
+
     public List<int> currentIngredients;
     public bool iceAdded;
 
-    void Start()
+    public Level currentLevel;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    public void StartLevel(Level level)
     {
         ClearIngredients();
+        currentLevel = level;
 
-        // Testing
-        MixDrink();
-        AddIngredient(1);
-        MixDrink();
-        AddIngredient(2);
-        MixDrink(); // Success!
-        ToggleIce();
-        MixDrink();
-        ClearIngredients();
-        MixDrink();
+        PlayDialogue(currentLevel.ordering);
+    }
+
+    public void Submit(int drinkId) 
+    {
+        if (drinkId == currentLevel.correctDrinkId)
+        {
+            PlayDialogue(currentLevel.success);
+        }
+        else 
+        {
+            PlayDialogue(currentLevel.failure);
+        }
+        GameManager.Instance.PlayNextLevel();
     }
 
     public void ToggleIce()
@@ -33,9 +53,15 @@ public class LevelManager : MonoBehaviour
         iceAdded = false;
     }
 
-    public void AddIngredient(int id)
+    public bool AddIngredient(int id)
     {
-        currentIngredients.Add(id);
+        if (currentIngredients.Count < 3)
+        {
+            currentIngredients.Add(id);
+            return true;
+        }
+
+        return false;
     }
 
     public int MixDrink()
@@ -50,5 +76,10 @@ public class LevelManager : MonoBehaviour
         }
 
         return -1;
+    }
+
+    public void PlayDialogue(List<Dialogue> dialogue)
+    {
+        // TODO
     }
 }

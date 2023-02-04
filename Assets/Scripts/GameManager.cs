@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Dictionary<int, Recipe> Recipes;
     public Dictionary<int, Level> Levels;
 
+    public int currentLevelId;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -22,6 +24,27 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         loadData();
+
+
+       currentLevelId = 0;
+    }   
+
+    public void PlayNextLevel()
+    {
+        currentLevelId += 1;
+        if (currentLevelId <= Levels.Count)
+        {
+            LevelManager.Instance.StartLevel(Levels[currentLevelId]);
+        }
+        else
+        {
+            EndGame();
+        }
+    }
+
+    public void EndGame()
+    {
+        // TODO
     }
 
     private void loadData()

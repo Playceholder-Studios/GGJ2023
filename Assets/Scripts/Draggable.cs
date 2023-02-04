@@ -22,12 +22,17 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private GameObject _draggedIcon;
     private Color _defaultColor;
 
+    public int ingredientId;
+    public Ingredient ingredient;
+
     private void Start()
     {
         DragBegin ??= new UnityEvent<GameObject>();
         DragEnd ??= new UnityEvent<GameObject>();
         spriteRenderer = GetSpriteRenderer();
         _defaultColor = spriteRenderer.color;
+
+        ingredient = GameManager.Instance.GetIngredient(ingredientId);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -54,8 +59,8 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         spriteRenderer.color = _defaultColor;
         if (isDroppableOnly)
         {
-            GameObject droppedGameObject = eventData.pointerCurrentRaycast.gameObject;
-            if (droppedGameObject == null || droppedGameObject.GetComponent<Droppable>() == null)
+            GameObject droppedOn = eventData.pointerCurrentRaycast.gameObject;
+            if (droppedOn == null || droppedOn.GetComponent<DropTarget>() == null)
             {
                 Destroy(_draggedIcon);
             }

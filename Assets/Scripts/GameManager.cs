@@ -65,4 +65,8 @@ public class GameManager : MonoBehaviour
                 l => l.id,
                 l => l);
     }
+
+    public Ingredient GetIngredient(int id) {
+        return Ingredients[id];
+    }
 }

@@ -2,22 +2,24 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     /// <summary>
     /// Game Object can only be dropped on Droppable areas.
     /// </summary>
     public bool isDroppableOnly = true;
+    public UnityEvent PointerDown;
     /// <summary>
     /// Unity Event invoked when a drag event starts. The original game object
     /// is passed through the callback as parameter.
     /// </summary>
-    public UnityEvent<GameObject> DragBegin;
+    public UnityEvent DragBegin;
     /// <summary>
     /// Unity Event invoked when a drag event ends. The original game object
     /// is passed through the callback as parameter.
     /// </summary>
-    public UnityEvent<GameObject> DragEnd;
+    public UnityEvent DragEnd;
+    public UnityEvent PointerUp;
     private SpriteRenderer spriteRenderer;
     private GameObject _draggedIcon;
     private Color _defaultColor;
@@ -27,12 +29,24 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
     private void Start()
     {
-        DragBegin ??= new UnityEvent<GameObject>();
-        DragEnd ??= new UnityEvent<GameObject>();
+        DragBegin ??= new UnityEvent();
+        DragEnd ??= new UnityEvent();
+        PointerDown ??= new UnityEvent();
+        PointerUp ??= new UnityEvent();
         spriteRenderer = GetSpriteRenderer();
         _defaultColor = spriteRenderer.color;
 
         ingredient = GameManager.Instance.GetIngredient(ingredientId);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        PointerDown?.Invoke();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        PointerUp?.Invoke();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -46,7 +60,7 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
         DndHandler.Instance.previouslyDraggedObject = gameObject;
 
-        DragBegin?.Invoke(gameObject);
+        DragBegin?.Invoke();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -66,7 +80,7 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             // }
         }
 
-        DragEnd?.Invoke(gameObject);
+        DragEnd?.Invoke();
     }
 
     private void SetDragPosition(PointerEventData eventData)

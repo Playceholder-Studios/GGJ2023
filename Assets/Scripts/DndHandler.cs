@@ -7,6 +7,7 @@ public class DndHandler : MonoBehaviour
 {
     public static DndHandler Instance { get; private set; }
     public GameObject previouslyDraggedObject;
+    public GameObject toolTipObject;
 
     private void Awake()
     {

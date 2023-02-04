@@ -30,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartLevel(Level level)
     {
+        Debug.Log("Starting level " + level.id);
         ClearIngredients();
         currentLevel = level;
 
@@ -45,10 +46,12 @@ public class LevelManager : MonoBehaviour
         }
         if (currentDrink == currentLevel.correctDrinkId)
         {
+            Debug.Log("We did it!");
             PlayDialogue(currentLevel.success);
         }
         else 
         {
+            Debug.Log("You suck");
             PlayDialogue(currentLevel.failure);
         }
         GameManager.Instance.PlayNextLevel();
@@ -56,6 +59,7 @@ public class LevelManager : MonoBehaviour
 
     public void ToggleIce()
     {
+        Debug.Log("Toggling ice to " + !iceAdded);
         iceAdded = !iceAdded;
     }
 

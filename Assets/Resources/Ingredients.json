@@ -6,14 +6,40 @@
             "ingredientName": "Jinjur",
             "tags": [
                 "spicy"
-            ]
+            ],
+            "description": "not ginger"
         },
         {
             "id": 2,
             "ingredientName": "Sugaroot",
             "tags": [
                 "sweet"
-            ]
+            ],
+            "description": "not ginger"
+        },
+        {
+            "id": 3,
+            "ingredientName": "Librock",
+            "tags": [
+                "herbal"
+            ],
+            "description": "not ginger"
+        },
+        {
+            "id": 4,
+            "ingredientName": "Durnip",
+            "tags": [
+                "earthy"
+            ],
+            "description": "not ginger"
+        },
+        {
+            "id": 5,
+            "ingredientName": "Collie Flower",
+            "tags": [
+                "floral"
+            ],
+            "description": "not ginger"
         }
     ]
 }

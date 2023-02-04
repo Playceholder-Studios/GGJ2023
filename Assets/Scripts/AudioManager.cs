@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance = null;
 
     public AudioClip music;
+    public AudioClip iceSound;
+    public AudioClip mixSound;
 
     // Initialize the singleton instance.
     private void Awake()
@@ -31,7 +33,11 @@ public class AudioManager : MonoBehaviour
 
         EffectsSources = new Dictionary<string, AudioSource>();
 
+        MusicSource = gameObject.AddComponent<AudioSource>();
         SetMusic(music);
+
+        SetEffect("ICE", iceSound);
+        SetEffect("MIX", mixSound);
 
         PlayMusic();
     }

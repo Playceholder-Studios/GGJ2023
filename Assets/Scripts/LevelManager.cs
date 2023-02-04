@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public int currentDrink;
 
     public Level currentLevel;
+
+    public GameObject activeIce;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -60,13 +62,18 @@ public class LevelManager : MonoBehaviour
     public void ToggleIce()
     {
         Debug.Log("Toggling ice to " + !iceAdded);
+        if (!iceAdded) {
+            AudioManager.Instance.PlayEffect("ICE");
+        }
         iceAdded = !iceAdded;
+        activeIce.SetActive(iceAdded);
     }
 
     public void ClearIngredients()
     {
         currentIngredients = new List<int>();
         iceAdded = false;
+        activeIce.SetActive(false);
         currentDrink = -1;
     }
 
@@ -90,6 +97,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Drink already mixed");
             return;
         }
+        AudioManager.Instance.PlayEffect("MIX");
         foreach (Recipe r in GameManager.Instance.Recipes.Values) {
             bool isMatch = r.TryRecipe(currentIngredients, iceAdded);
             Debug.Log("Trying Recipe " + r.recipeName + ": " + isMatch);

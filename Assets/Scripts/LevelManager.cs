@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public List<int> currentIngredients;
     public bool iceAdded;
 
+    public int currentDrink;
+
     public Level currentLevel;
     private void Awake()
     {
@@ -21,6 +23,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameManager.Instance.PlayNextLevel();
+    }
+
     public void StartLevel(Level level)
     {
         ClearIngredients();
@@ -29,9 +36,14 @@ public class LevelManager : MonoBehaviour
         PlayDialogue(currentLevel.ordering);
     }
 
-    public void Submit(int drinkId) 
+    public void Submit() 
     {
-        if (drinkId == currentLevel.correctDrinkId)
+        if (currentDrink < 1)
+        {
+            Debug.Log("No drink to submit!");
+            return;
+        }
+        if (currentDrink == currentLevel.correctDrinkId)
         {
             PlayDialogue(currentLevel.success);
         }
@@ -51,31 +63,43 @@ public class LevelManager : MonoBehaviour
     {
         currentIngredients = new List<int>();
         iceAdded = false;
+        currentDrink = -1;
     }
 
     public bool AddIngredient(int id)
     {
-        if (currentIngredients.Count < 3)
+        if (currentIngredients.Count < 3 && !currentIngredients.Contains(id))
         {
+            Debug.Log("Added ingredient " + id);
             currentIngredients.Add(id);
             return true;
         }
 
+        Debug.Log("ingredients full " + id);
         return false;
     }
 
-    public int MixDrink()
+    public void MixDrink()
     {
+        if (currentDrink != -1)
+        {
+            Debug.Log("Drink already mixed");
+            return;
+        }
         foreach (Recipe r in GameManager.Instance.Recipes.Values) {
             bool isMatch = r.TryRecipe(currentIngredients, iceAdded);
             Debug.Log("Trying Recipe " + r.recipeName + ": " + isMatch);
             if (isMatch)
             {
-                return r.id;
+                currentDrink = r.id;
+                Debug.Log("Recipe found! " + r.id);
+                return;
             }
         }
 
-        return -1;
+        currentDrink = 0;
+        Debug.Log("Not a recipe!");
+        return;
     }
 
     public void PlayDialogue(List<Dialogue> dialogue)

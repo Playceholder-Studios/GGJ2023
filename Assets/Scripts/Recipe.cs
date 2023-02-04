@@ -46,6 +46,7 @@ public class Recipe
 
     private void unlockRecipe()
     {
+        Debug.Log("Recipe unlocked! " + id);
         unlocked = true;
     }
 }

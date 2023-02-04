@@ -60,10 +60,10 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (isDroppableOnly)
         {
             GameObject droppedOn = eventData.pointerCurrentRaycast.gameObject;
-            if (droppedOn == null || droppedOn.GetComponent<DropTarget>() == null)
-            {
-                Destroy(_draggedIcon);
-            }
+            // if (droppedOn == null || droppedOn.GetComponent<DropTarget>() == null)
+            // {
+            Destroy(_draggedIcon);
+            // }
         }
 
         DragEnd?.Invoke(gameObject);

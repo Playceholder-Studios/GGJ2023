@@ -59,7 +59,9 @@
                             "content": "Things are the same in here as out there, eh."
                         }
                     ],
-            "correctDrinkId": 1
+            "correctDrinkId": 1,
+            "tipSuccess": 10,
+            "tipFailure": 2
         },
         {
             "id": 2,
@@ -125,7 +127,9 @@
                             "content": "Better luck next time!"
                         }
                     ],
-            "correctDrinkId": 2
+            "correctDrinkId": 2,
+            "tipSuccess": 20,
+            "tipFailure": 5
         }
     ]
 }

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    public GameObject endGameScreen;
+    public TextMeshProUGUI tipDisplayText;
+    public TextMeshProUGUI endGameTotalTipDisplayText;
+    private int totalTip;
 
     public Dictionary<int, Ingredient> Ingredients;
     public Dictionary<int, Recipe> Recipes;
@@ -26,6 +32,8 @@ public class GameManager : MonoBehaviour
         loadData();
 
        currentLevelId = 0;
+       totalTip = 0;
+       endGameScreen.SetActive(false);
     }   
 
     public void PlayNextLevel()
@@ -41,9 +49,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddTip(int amount)
+    {
+        totalTip += amount;
+        tipDisplayText.text = totalTip.ToString();
+    }
+
     public void EndGame()
     {
-        // TODO
+        endGameTotalTipDisplayText.text = "$" + totalTip.ToString();
+        endGameScreen.SetActive(true);
     }
 
     private void loadData()

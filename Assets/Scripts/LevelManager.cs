@@ -64,11 +64,13 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("We did it!");
             dialogueHandler.StartDialogue(currentLevel.success);
+            GameManager.Instance.AddTip(currentLevel.tipSuccess);
         }
         else 
         {
             Debug.Log("You suck");
             dialogueHandler.StartDialogue(currentLevel.failure);
+            GameManager.Instance.AddTip(currentLevel.tipFailure);
         }
         GameManager.Instance.PlayNextLevel();
     }

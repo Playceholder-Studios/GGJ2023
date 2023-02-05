@@ -11,4 +11,6 @@ public class Level
     public List<Dialogue> ordering;
     public List<Dialogue> success;
     public List<Dialogue> failure;
+    public int tipSuccess;
+    public int tipFailure;
 }

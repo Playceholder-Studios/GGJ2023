@@ -20,4 +20,9 @@ public class CursorHandler : MonoBehaviour
     {
         Cursor.SetCursor(cursorClose, new Vector2(cursorClose.width / 2, cursorClose.height / 2), CursorMode.ForceSoftware);
     }
+
+    public void SetCursorPointer()
+    {
+        Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
+    }
 }

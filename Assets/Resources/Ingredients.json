@@ -7,7 +7,7 @@
             "tags": [
                 "spicy"
             ],
-            "description": "not ginger"
+            "description": "Definitely not ginger."
         },
         {
             "id": 2,
@@ -15,7 +15,7 @@
             "tags": [
                 "sweet"
             ],
-            "description": "not ginger"
+            "description": "A little bit of sugar, a little bit of root."
         },
         {
             "id": 3,
@@ -23,7 +23,7 @@
             "tags": [
                 "herbal"
             ],
-            "description": "not ginger"
+            "description": "A piece of rock that you found from the ground."
         },
         {
             "id": 4,
@@ -31,7 +31,7 @@
             "tags": [
                 "earthy"
             ],
-            "description": "not ginger"
+            "description": "Are you ready to turnip a new leaf?"
         },
         {
             "id": 5,
@@ -39,7 +39,7 @@
             "tags": [
                 "floral"
             ],
-            "description": "not ginger"
+            "description": "Filled with nutrition, can make someone happy I guess."
         }
     ]
 }

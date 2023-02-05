@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         }
         loadData();
 
-
        currentLevelId = 0;
     }   
 

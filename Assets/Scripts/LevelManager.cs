@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public int currentDrink;
 
     public Level currentLevel;
+    public DialogueHandler dialogueHandler;
 
     public GameObject activeIce;
     public GameObject emptyCup;
@@ -34,13 +35,22 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.PlayNextLevel();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && dialogueHandler.isWaitingForPlayerResponse)
+        {
+            dialogueHandler.NextDialogue();
+        }
+    }
+
     public void StartLevel(Level level)
     {
         Debug.Log("Starting level " + level.id);
         ClearIngredients();
         currentLevel = level;
 
-        PlayDialogue(currentLevel.ordering);
+        dialogueHandler.ClearDialogue();
+        dialogueHandler.StartDialogue(currentLevel.ordering);
     }
 
     public void Submit() 
@@ -53,12 +63,12 @@ public class LevelManager : MonoBehaviour
         if (currentDrink == currentLevel.correctDrinkId)
         {
             Debug.Log("We did it!");
-            PlayDialogue(currentLevel.success);
+            dialogueHandler.StartDialogue(currentLevel.success);
         }
         else 
         {
             Debug.Log("You suck");
-            PlayDialogue(currentLevel.failure);
+            dialogueHandler.StartDialogue(currentLevel.failure);
         }
         GameManager.Instance.PlayNextLevel();
     }
@@ -143,10 +153,5 @@ public class LevelManager : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
         }
-    }
-
-    public void PlayDialogue(List<Dialogue> dialogue)
-    {
-        // TODO
     }
 }

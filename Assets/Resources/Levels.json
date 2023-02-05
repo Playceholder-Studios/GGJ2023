@@ -5,8 +5,6 @@
             "id": 1,
             "characterID": 1,
             "ordering":
-            {
-                "content": 
                     [
                         {
                             "isPlayer": false,
@@ -18,7 +16,7 @@
                         },
                         {
                             "isPlayer": false,
-                            "content": "Been a cold, dull, and bitter day today.",
+                            "content": "Been a <color=blue><b>cold</b></color>, <color=#373F51><b>dull</b></color>, and <color=#4B5842><b>bitter</b></color> day today.",
                             "keywords": [
                                 {
                                     "word": "cold",
@@ -33,9 +31,16 @@
                                     "context": "negative"
                                 }
                             ]
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "That's true, I think I know something that can do the trick."
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Show me what you got."
                         }
-                    ]
-            },
+                    ],
             "success":
                     [
                         {
@@ -52,13 +57,75 @@
                         {
                             "isPlayer": false,
                             "content": "Things are the same in here as out there, eh."
-                        },
-                        {
-                            "isPlayer": false,
-                            "content": "Whatever."
                         }
                     ],
             "correctDrinkId": 1
+        },
+        {
+            "id": 2,
+            "characterID": 2,
+            "ordering":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "Howdy!"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Cozy place you got here!"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Hey there, thank you."
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "It's been so <color=red><b>hot</b></color> lately that I can't help but be thirsty!"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "I can make you something if you'd like."
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Hmm, whatchu got over there?"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "How about something lemony?"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Something the <color=green><b>opposite</b></color> would actually be nice"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Probably something tough, you know?"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "I know just the thing! Coming right up."
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Great! Thanks pal"
+                        }
+                    ],
+            "success":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "You nailed it on this one!"
+                        }
+                    ],
+            "failure":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "Better luck next time!"
+                        }
+                    ],
+            "correctDrinkId": 2
         }
     ]
 }

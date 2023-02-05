@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,8 @@ public class DndHandler : MonoBehaviour
     public static DndHandler Instance { get; private set; }
     public GameObject previouslyDraggedObject;
     public GameObject toolTipObject;
+    public TextMeshProUGUI toolTipTitle;
+    public TextMeshProUGUI toolTipDescription;
 
     private void Awake()
     {
@@ -19,5 +22,15 @@ public class DndHandler : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    public void SetToolTipTitle(string text)
+    {
+        toolTipTitle.text = text;
+    }
+
+    public void SetTooltipText(string text)
+    {
+        toolTipDescription.text = text;
     }
 }

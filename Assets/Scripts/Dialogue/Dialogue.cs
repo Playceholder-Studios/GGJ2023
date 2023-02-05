@@ -16,3 +16,8 @@ public class Keyword
     public string word;
     public string context;
 }
+
+public enum DialogueLocation
+{
+    Start = 0
+}

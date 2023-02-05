@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,25 +11,31 @@ public enum DialogType
 
 public class DialogueHandler : MonoBehaviour
 {
+    public bool isWaitingForPlayerResponse = false;
     public GameObject playerDialogueBox;
     public GameObject customerDialogueBox;
+    public GameObject dialogueInfoText;
     public Transform dialogContentTransform;
     public ScrollRect scrollRect;
-    private bool _addType = true;
+    private List<Dialogue> currentDialogueList;
+    private int currentDialogueIndex;
+    //For Debugging Purpose
+    //private bool _addType = true;
     private bool _hasAddedDialog = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_addType)
-            {
-                AddDialog(Time.time.ToString(), DialogType.Customer);
-            } else {
-                AddDialog(Time.time.ToString(), DialogType.Player);
-            }
-            _addType = !_addType;
-        }
+        //For Debugging Purpose
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (_addType)
+        //    {
+        //        AddDialog(Time.time.ToString(), DialogType.Customer);
+        //    } else {
+        //        AddDialog(Time.time.ToString(), DialogType.Player);
+        //    }
+        //    _addType = !_addType;
+        //}
 
         if (_hasAddedDialog )
         {
@@ -58,5 +65,49 @@ public class DialogueHandler : MonoBehaviour
         }
 
         _hasAddedDialog = true;
+    }
+
+    public void StartDialogue(List<Dialogue> dialogueList)
+    {
+        currentDialogueList = dialogueList;
+        currentDialogueIndex = (int)DialogueLocation.Start;
+        NextDialogue();
+    }
+
+    public void NextDialogue()
+    {
+        int remainingDialogueCount = currentDialogueList.Count - currentDialogueIndex;
+        int startingDialogueIndex = currentDialogueIndex;
+        foreach (Dialogue d in currentDialogueList.GetRange(startingDialogueIndex, remainingDialogueCount))
+        {
+            if (d.isPlayer && !isWaitingForPlayerResponse)
+            {
+                isWaitingForPlayerResponse = true;
+                break;
+            } else
+            {
+                isWaitingForPlayerResponse = false;
+            }
+
+            AddDialog(d.content, d.isPlayer ? DialogType.Player : DialogType.Customer);
+            currentDialogueIndex++;
+
+            if (currentDialogueIndex >= currentDialogueList.Count - 1)
+            {
+                dialogueInfoText.SetActive(false);
+            }
+            else
+            {
+                dialogueInfoText.SetActive(true);
+            }
+        }
+    }
+
+    public void ClearDialogue()
+    {
+        foreach (Transform t in dialogContentTransform)
+        {
+            Destroy(t.gameObject);
+        }
     }
 }

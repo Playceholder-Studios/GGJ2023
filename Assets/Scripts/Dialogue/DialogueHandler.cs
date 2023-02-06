@@ -64,6 +64,7 @@ public class DialogueHandler : MonoBehaviour
             p.GetComponent<DialogueBoxHandler>().SetDialogueText(dialogText);
         }
 
+        AudioManager.Instance.PlayEffect("POP");
         _hasAddedDialog = true;
     }
 
@@ -94,11 +95,11 @@ public class DialogueHandler : MonoBehaviour
 
             if (currentDialogueIndex >= currentDialogueList.Count - 1)
             {
-                dialogueInfoText.SetActive(false);
+                SetInfoDialogueActive(false);
             }
             else
             {
-                dialogueInfoText.SetActive(true);
+                SetInfoDialogueActive(true);
             }
         }
     }
@@ -109,5 +110,10 @@ public class DialogueHandler : MonoBehaviour
         {
             Destroy(t.gameObject);
         }
+    }
+
+    public void SetInfoDialogueActive(bool isActive)
+    {
+        dialogueInfoText.SetActive(isActive);
     }
 }

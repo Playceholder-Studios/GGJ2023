@@ -8,11 +8,15 @@ public class LevelManager : MonoBehaviour
     public List<int> currentIngredients;
     public List<GameObject> ingredientSlots;
     public bool iceAdded;
+    // Used to advance to the next customer so it doesn't skip the 
+    // success/failure messages
+    public bool readyToServeCustomer = false;
 
     public int currentDrink;
 
     public Level currentLevel;
     public DialogueHandler dialogueHandler;
+    public CustomerHandler customerHandler;
 
     public GameObject activeIce;
     public GameObject emptyCup;
@@ -37,9 +41,17 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogueHandler.isWaitingForPlayerResponse)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            dialogueHandler.NextDialogue();
+            if (dialogueHandler.isWaitingForPlayerResponse)
+            {
+                dialogueHandler.NextDialogue();
+            }
+
+            if (readyToServeCustomer)
+            {
+                GameManager.Instance.PlayNextLevel();
+            }
         }
     }
 
@@ -48,8 +60,9 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Starting level " + level.id);
         ClearIngredients();
         currentLevel = level;
-
+        readyToServeCustomer = false;
         dialogueHandler.ClearDialogue();
+        customerHandler.LoadCustomer(currentLevel.characterID);
         dialogueHandler.StartDialogue(currentLevel.ordering);
     }
 
@@ -72,7 +85,9 @@ public class LevelManager : MonoBehaviour
             dialogueHandler.StartDialogue(currentLevel.failure);
             GameManager.Instance.AddTip(currentLevel.tipFailure);
         }
-        GameManager.Instance.PlayNextLevel();
+
+        readyToServeCustomer = true;
+        dialogueHandler.SetInfoDialogueActive(true);
     }
 
     public void ToggleIce()

@@ -13,16 +13,16 @@ public class CursorHandler : MonoBehaviour
 
     public void SetCursorOpen()
     {
-        Cursor.SetCursor(cursorOpen, new Vector2(cursorOpen.width / 2, cursorOpen.height / 2), CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorOpen, new Vector2(cursorOpen.width * 0.4f, cursorOpen.height * 0.4f), CursorMode.ForceSoftware);
     }
 
     public void SetCursorClosed()
     {
-        Cursor.SetCursor(cursorClose, new Vector2(cursorClose.width / 2, cursorClose.height / 2), CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursorClose, new Vector2(cursorClose.width * 0.35f, cursorClose.height * 0.15f), CursorMode.ForceSoftware);
     }
 
     public void SetCursorPointer()
     {
-        Cursor.SetCursor(null, new Vector2(0, 0), CursorMode.Auto);
+        Cursor.SetCursor(cursorPointer, new Vector2(0,0), CursorMode.ForceSoftware);
     }
 }

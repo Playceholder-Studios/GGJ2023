@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public GameObject startGameScreen;
     public GameObject endGameScreen;
     public TextMeshProUGUI tipDisplayText;
     public TextMeshProUGUI endGameTotalTipDisplayText;
@@ -34,7 +35,8 @@ public class GameManager : MonoBehaviour
        currentLevelId = 0;
        totalTip = 0;
        endGameScreen.SetActive(false);
-    }   
+       //startGameScreen.SetActive(true);
+    }
 
     public void PlayNextLevel()
     {
@@ -78,6 +80,11 @@ public class GameManager : MonoBehaviour
            .ToDictionary(
                 l => l.id,
                 l => l);
+    }
+
+    public void StartGame()
+    {
+        startGameScreen.SetActive(false);
     }
 
     public Ingredient GetIngredient(int id) {

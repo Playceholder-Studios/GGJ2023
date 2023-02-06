@@ -102,7 +102,7 @@
                         },
                         {
                             "isPlayer": false,
-                            "content": "Probably something tough, you know?"
+                            "content": "Probably something <b>tough</b>, you know?"
                         },
                         {
                             "isPlayer": true,

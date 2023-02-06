@@ -3,43 +3,43 @@
     [
         {
             "id": 1,
-            "ingredientName": "Jinjur",
+            "ingredientName": "Fiery Beets",
             "tags": [
                 "spicy"
             ],
-            "description": "Definitely not ginger."
+            "description": "<i>These beets are hot!</i><br><br>Very spicy and can warm people up."
         },
         {
             "id": 2,
-            "ingredientName": "Sugaroot",
+            "ingredientName": "Paper Carrot",
             "tags": [
                 "sweet"
             ],
-            "description": "A little bit of sugar, a little bit of root."
+            "description": "<i>Some say the paper cuts you get from these improve your eyesight.</i><br><br>Lots of fiber and very healthy."
         },
         {
             "id": 3,
-            "ingredientName": "Librock",
+            "ingredientName": "Rock Potato",
             "tags": [
                 "herbal"
             ],
-            "description": "A piece of rock that you found from the ground."
+            "description": "<i>A piece of rock you found from the ground that looks like a potato.</i><br><br>Very tough and chewy. Great for the hardy."
         },
         {
             "id": 4,
-            "ingredientName": "Durnip",
+            "ingredientName": "Gingy",
             "tags": [
                 "earthy"
             ],
-            "description": "Are you ready to turnip a new leaf?"
+            "description": "<i>Ginger bread man. Talks alot.</i><br><br>Sweet and good to cheer up somebody's day."
         },
         {
             "id": 5,
-            "ingredientName": "Collie Flower",
+            "ingredientName": "Turnknife",
             "tags": [
                 "floral"
             ],
-            "description": "Filled with nutrition, can make someone happy I guess."
+            "description": "<i>A turnip with a knife in it.</i><br><br>Sharp! Be careful."
         }
     ]
 }

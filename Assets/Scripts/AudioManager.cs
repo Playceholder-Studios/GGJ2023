@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip iceSound;
     public AudioClip mixSound;
     public AudioClip chatPopSound;
+    public AudioClip successSound;
+    public AudioClip failureSound;
 
     // Initialize the singleton instance.
     private void Awake()
@@ -40,6 +42,8 @@ public class AudioManager : MonoBehaviour
         SetEffect("ICE", iceSound);
         SetEffect("MIX", mixSound);
         SetEffect("POP", chatPopSound);
+        SetEffect("SUCCESS", successSound);
+        SetEffect("FAILURE", failureSound);
 
         PlayMusic();
     }

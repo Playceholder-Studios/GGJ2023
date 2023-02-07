@@ -2,29 +2,27 @@
     "Items": [
         {
             "id": 1,
-            "recipeName": "Tinger-G",
+            "recipeName": "Hot knife on the rocks",
             "ingredients": [
                 1,
-                2
+                3,
+                5
             ],
             "iced": false
         },
         {
             "id": 2,
-            "recipeName": "Ice-T Pain",
+            "recipeName": "Ginger on the rocks",
             "ingredients": [
-                3,
-                4,
-                5
+                4
             ],
             "iced": true
         },
         {
             "id": 3,
-            "recipeName": "Cloudy with a chance of Beet balls",
+            "recipeName": "Ginger carrot health",
             "ingredients": [
-                1,
-                3,
+                2,
                 4
             ],
             "iced": false

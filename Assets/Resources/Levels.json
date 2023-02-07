@@ -16,52 +16,38 @@
                         },
                         {
                             "isPlayer": false,
-                            "content": "Been a <color=blue><b>cold</b></color>, <color=#373F51><b>dull</b></color>, and <color=#4B5842><b>bitter</b></color> day today.",
-                            "keywords": [
-                                {
-                                    "word": "cold",
-                                    "context": "negative"
-                                },
-                                {
-                                    "word": "bitter",
-                                    "context": "negative"
-                                },
-                                {
-                                    "word": "dull",
-                                    "context": "negative"
-                                }
-                            ]
+                            "content": "Give me something quick! Something <b>hard</b> with an <color=#474044><b>edge</b></color> to it!"
                         },
                         {
                             "isPlayer": true,
-                            "content": "That's true, I think I know something that can do the trick."
+                            "content": "Woah there! Slow down!"
                         },
                         {
                             "isPlayer": false,
-                            "content": "Show me what you got."
+                            "content": "I'm <color=#F8333C><b>fired</b></color> up!"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Okay okay, coming right up!"
                         }
                     ],
             "success":
                     [
                         {
                             "isPlayer": false,
-                            "content": "The world may be harsh, but this drink was nice."
-                        },
-                        {
-                            "isPlayer": false,
-                            "content": "Thank you."
+                            "content": "Took you long enough."
                         }
                     ],
             "failure":
                     [
                         {
                             "isPlayer": false,
-                            "content": "Things are the same in here as out there, eh."
+                            "content": "I'm out of time I gotta go."
                         }
                     ],
             "correctDrinkId": 1,
             "tipSuccess": 10,
-            "tipFailure": 2
+            "tipFailure": 0
         },
         {
             "id": 2,
@@ -70,7 +56,7 @@
                     [
                         {
                             "isPlayer": false,
-                            "content": "Howdy!"
+                            "content": "Hey sonny!"
                         },
                         {
                             "isPlayer": false,
@@ -94,15 +80,11 @@
                         },
                         {
                             "isPlayer": true,
-                            "content": "How about something lemony?"
+                            "content": "How about something sour?"
                         },
                         {
                             "isPlayer": false,
-                            "content": "Something the <color=green><b>opposite</b></color> would actually be nice"
-                        },
-                        {
-                            "isPlayer": false,
-                            "content": "Probably something <b>tough</b>, you know?"
+                            "content": "Quite the <color=#95F9E3><b>opposite</b></color> would actually be nice!"
                         },
                         {
                             "isPlayer": true,
@@ -110,7 +92,7 @@
                         },
                         {
                             "isPlayer": false,
-                            "content": "Great! Thanks pal"
+                            "content": "Great! Thanks pal!"
                         }
                     ],
             "success":
@@ -130,6 +112,78 @@
             "correctDrinkId": 2,
             "tipSuccess": 20,
             "tipFailure": 5
+        },
+        {
+            "id": 3,
+            "characterID": 3,
+            "ordering":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "Hey."
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Hi, how's it going?"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Good."
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Can I help you with anything?"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "<color=#F18701><b>Fiber.</b></color>"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Excuse me?"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "<color=#F18701><b>Health.</b></color>"
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "I'm sorry I'm not quite getting it."
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "Also <color=#95F9E3><b>sweet</b></color>. Too."
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Is that all?"
+                        },
+                        {
+                            "isPlayer": false,
+                            "content": "..."
+                        },
+                        {
+                            "isPlayer": true,
+                            "content": "Okay, I think have something for you."
+                        }
+                    ],
+            "success":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "Thank."
+                        }
+                    ],
+            "failure":
+                    [
+                        {
+                            "isPlayer": false,
+                            "content": "*Grunt*"
+                        }
+                    ],
+            "correctDrinkId": 3,
+            "tipSuccess": 10,
+            "tipFailure": 2
         }
     ]
 }

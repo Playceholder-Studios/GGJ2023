@@ -55,6 +55,7 @@ public class Draggable : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         _draggedIcon = new GameObject("Dragged Icon");
         SpriteRenderer addedSR = _draggedIcon.AddComponent<SpriteRenderer>();
         addedSR.sprite = spriteRenderer.sprite;
+        addedSR.sortingOrder = 1;
         _draggedIcon.transform.position = transform.position;
         _draggedIcon.transform.localScale = transform.localScale;
 

@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1261,7 +1261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286515610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.76, y: 0.73, z: -10}
+  m_LocalPosition: {x: 2.76, y: 0.73, z: -11}
   m_LocalScale: {x: 0.8851, y: 0.8851, z: 0.8851}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2056,8 +2056,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 081095afa81ec454c8bfc88f4624adff, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: e8af101fbe5b2064284af063c84a8e7f, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2581,6 +2581,8 @@ MonoBehaviour:
   iceSound: {fileID: 8300000, guid: 59fbb65631d344c57a4aac506a56d530, type: 3}
   mixSound: {fileID: 8300000, guid: 933a4097b096f400b83789f66db207b5, type: 3}
   chatPopSound: {fileID: 8300000, guid: 1dc62ca0c1e6d42a9ba7b307e21f2876, type: 3}
+  successSound: {fileID: 8300000, guid: 5e06a570b5859c04d9ebcd65e7a77191, type: 3}
+  failureSound: {fileID: 8300000, guid: 435325b700054594390fdfef6d1681e7, type: 3}
 --- !u!1 &571917536
 GameObject:
   m_ObjectHideFlags: 0

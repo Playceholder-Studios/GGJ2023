@@ -110,4 +110,9 @@ public class AudioManager : MonoBehaviour
         	MusicSource.UnPause();
 		}
     }
+
+    public void ChangeVolume(System.Single volume)
+    {
+        MusicSource.volume = volume;
+    }
 }
